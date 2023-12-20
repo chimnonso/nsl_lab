@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load custom_filters %}
+
+{% block content %}
+{% include 'partials/_banner.html' with heading="Meet Our Post Doctoral Researchers" %}
+    <div class="container my-5">
+        <div class="row">
+          <div class="col-lg-3">
+            {% include 'partials/_members.html' with heading="Meet Our Professors" aria="true" %}
+          </div>
+          
+            <div class="col-lg-9">
+                  <div class="row">
+                    {% for bio in bios %}
+                    <div class="col-md-4">
+                      <div class="card" style="width: 18rem;">
+                        <img src="https://placehold.co/50" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ bio.name }}</h5>
+                          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        </div>
+                        <!-- <ul class="list-group list-group-flush">
+                          <li class="list-group-item">An item</li>
+                          <li class="list-group-item">A second item</li>
+                          <li class="list-group-item">A third item</li>
+                        </ul> -->
+                        <div class="card-body">
+                          <a href="{% url 'people:post_docs_detail' pk=bio.id %}" class="card-link">View more &raquo;</a>
+                          <a href="#" class="card-link">Google Scholar</a>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load custom_filters %}
+
+{% block content %}
+{% include 'partials/_banner.html' with heading="Meet Our Professors" %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-3">
+                {% include 'partials/_members.html' with heading="Meet Our Professors" %}
+            </div>
+            <div class="col-lg-9">
+                {% for bio in bios %}
+                <div class="d-flex mb-5">
+                    <div class="flex-shrink-0">
+                      <img class="img-fluid" src="https://placehold.co/300x300" alt="...">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <div class="card shadow-lg">
+                        <h5 class="card-header bg-info">{{ bio.name }}</h5>
+                        <div class="card-body">
+                            <p class="card-text"><span class="fw-bold">Bio:</span> {{ bio.bio }}</p>
+                            <hr class="hr">
+                            <p class="card-text">
+                                <span class="fw-bold">Career:</span> {% with bio.career|split_string:',' as career_list %}
+                                <ul class="list-group">
+                                    {% for career in career_list %}
+                                        <li class="list-group-item">{{ career }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endwith %}
+                            </p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            {% with bio.email_list|split_string:',' as email_list %}
+                                <ul class="list-inline">
+                                    <span class="fw-bold">Email:</span>
+                                    {% for email in email_list %}
+                                        <li class="list-inline-item">
+                                            <a href="mailto:{{ email }}">{{ email }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endwith %}
+                            
+                            <span class="fw-bold"><a href="{{ bio.link }}">Google Scholar</a></span>
+                        </div>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

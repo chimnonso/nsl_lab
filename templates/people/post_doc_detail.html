@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="container-fluid text-center members-banner bg-info">
+    
+    <img class="rounded-circle" src="https://placehold.co/250" alt="">
+    <h3 class="pt-3">{{ post_doc.name }}</h3>
+</div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg">
+                <div class="card-header">
+                    <nav class="pt-2 float-end" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="{% url 'pages:index' %}">Home</a></li>
+                          <li class="breadcrumb-item"><a href="{% url 'journal:list' %}">Journals</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Journal</li>
+                        </ol>
+                      </nav>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><span class="fw-bold">Bio:</span> {{ bio.bio }}</p>
+                    <hr class="hr">
+                    <p class="card-text">
+                        <span class="fw-bold">Career / Education:</span> {% with bio.career|split_string:',' as career_list %}
+                        <ul class="list-group">
+                            {% for career in career_list %}
+                                <li class="list-group-item">{{ career }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endwith %}
+                    </p>
+                    <p class="card-text fw-bold">Publications</p>
+                    <table class="table striped table-hovered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
