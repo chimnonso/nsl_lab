@@ -1,0 +1,13 @@
+asgiref==3.7.2
+backports.zoneinfo==0.2.1
+beautifulsoup4==4.12.2
+Django==4.2.8
+django-bootstrap5==23.3
+gunicorn==21.2.0
+mysqlclient==2.2.1
+packaging==23.2
+psycopg2-binary==2.9.9
+python-decouple==3.8
+soupsieve==2.5
+sqlparse==0.4.4
+typing-extensions==4.9.0
