@@ -85,27 +85,27 @@ WSGI_APPLICATION = 'nsllab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'nsldb',
-#         'USER': 'gabriel',
-#         'PASSWORD': 'foobar',
-#         'HOST': 'localhost',  # Set to the appropriate host if PostgreSQL is running on a different machine
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),  # Set to the appropriate host if PostgreSQL is running on a different machine
-        'PORT': config('DB_PORT', default='3306', cast=int),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nsldb',
+        'USER': 'gabriel',
+        'PASSWORD': 'foobar',
+        'HOST': 'localhost',  # Set to the appropriate host if PostgreSQL is running on a different machine
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),  # Set to the appropriate host if PostgreSQL is running on a different machine
+#         'PORT': config('DB_PORT', default='3306', cast=int),
+#     }
+# }
 
 
 # Password validation
