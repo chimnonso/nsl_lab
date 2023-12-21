@@ -2,6 +2,8 @@ asgiref==3.7.2
 beautifulsoup4==4.12.2
 Django==4.2.8
 django-bootstrap-v5==1.0.11
+gunicorn==21.2.0
+packaging==23.2
 psycopg-binary==3.1.16
 psycopg2-binary==2.9.9
 python-decouple==3.8
