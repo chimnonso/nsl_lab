@@ -1,1 +1,0 @@
-web: gunicorn nsllab.wsgi

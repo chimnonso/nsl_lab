@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
 
 
 # Application definition
@@ -49,13 +49,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     # 'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -79,33 +79,34 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'nsllab.wsgi.application'
+# WSGI_APPLICATION = 'nsllab.wsgi.application'
+WSGI_APPLICATION = 'nsllab.wsgi.app'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nsldb',
-        'USER': 'gabriel',
-        'PASSWORD': 'foobar',
-        'HOST': 'localhost',  # Set to the appropriate host if PostgreSQL is running on a different machine
-        'PORT': '5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': config('DB_NAME'),
-#         'USER': config('DB_USER'),
-#         'PASSWORD': config('DB_PASSWORD'),
-#         'HOST': config('DB_HOST'),  # Set to the appropriate host if PostgreSQL is running on a different machine
-#         'PORT': config('DB_PORT', default='3306', cast=int),
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'nsldb',
+#         'USER': 'gabriel',
+#         'PASSWORD': 'foobar',
+#         'HOST': 'localhost',  # Set to the appropriate host if PostgreSQL is running on a different machine
+#         'PORT': '5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),  # Set to the appropriate host if PostgreSQL is running on a different machine
+        'PORT': config('DB_PORT'),
+    }
+}
 
 
 # Password validation
