@@ -79,8 +79,8 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'nsllab.wsgi.application'
-WSGI_APPLICATION = 'nsllab.wsgi.app'
+WSGI_APPLICATION = 'nsllab.wsgi.application'
+# WSGI_APPLICATION = 'nsllab.wsgi.app'
 
 
 # Database
